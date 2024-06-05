@@ -1,0 +1,30 @@
+
+{
+java:S1192W"^Define a constant instead of duplicating this literal "Digite a chave a ser buscada:" 3 times.(˜Ê©Ü8’—àÑş1
+L	java:S1062"+Replace this use of System.out by a logger.(ïë°Öûÿÿÿÿ8¡—àÑş1
+L	java:S106:"+Replace this use of System.out by a logger.(çĞ¥ıÿÿÿÿ8¡—àÑş1
+G	java:S106;"+Replace this use of System.out by a logger.(Ãö”›8¡—àÑş1
+L	java:S106<"+Replace this use of System.out by a logger.(ÈŠúğùÿÿÿÿ8¡—àÑş1
+G	java:S106="+Replace this use of System.out by a logger.(µ“‚¡8¡—àÑş1
+L	java:S106>"+Replace this use of System.out by a logger.(íÈâ¤ùÿÿÿÿ8¡—àÑş1
+L	java:S106?"+Replace this use of System.out by a logger.(µ‘Ã¶ûÿÿÿÿ8¢—àÑş1
+G	java:S106@"+Replace this use of System.out by a logger.(Ã²¹ô8¢—àÑş1
+G	java:S106A"+Replace this use of System.out by a logger.(ó½”±8¢—àÑş1
+L	java:S106B"+Replace this use of System.out by a logger.(ó·¿Ìúÿÿÿÿ8¢—àÑş1
+L	java:S106F"+Replace this use of System.out by a logger.(„ôÁãúÿÿÿÿ8¢—àÑş1
+L	java:S106J"+Replace this use of System.out by a logger.(¸™Æˆşÿÿÿÿ8¢—àÑş1
+L	java:S106K"+Replace this use of System.out by a logger.(„ôÁãúÿÿÿÿ8¢—àÑş1
+G	java:S106W"+Replace this use of System.out by a logger.(˜Ê©Ü8£—àÑş1
+L	java:S106["+Replace this use of System.out by a logger.(Âˆ˜áùÿÿÿÿ8£—àÑş1
+F	java:S106\"+Replace this use of System.out by a logger.(éì«8£—àÑş1
+G	java:S106d"+Replace this use of System.out by a logger.(˜Ê©Ü8¤—àÑş1
+L	java:S106h"+Replace this use of System.out by a logger.(Âˆ˜áùÿÿÿÿ8¤—àÑş1
+F	java:S106i"+Replace this use of System.out by a logger.(éì«8¤—àÑş1
+V
+java:S1854t"9Remove this useless assignment to local variable "chave".(¯×ƒ°8¥—àÑş1
+G	java:S106s"+Replace this use of System.out by a logger.(˜Ê©Ü8¥—àÑş1
+G
+java:S1481t"*Remove this unused "chave" local variable.(¯×ƒ°8¥—àÑş1
+G	java:S106}"+Replace this use of System.out by a logger.(ÖÁíä8¦—àÑş1
+H	java:S106"+Replace this use of System.out by a logger.(Œ£öì8¦—àÑş1
+M	java:S106Š"+Replace this use of System.out by a logger.(ìÂ”¢ıÿÿÿÿ8¦—àÑş1
