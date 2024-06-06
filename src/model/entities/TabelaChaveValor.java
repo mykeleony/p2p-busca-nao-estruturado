@@ -3,7 +3,7 @@ package model.entities;
 import java.util.*;
 
 public class TabelaChaveValor {
-    private Map<String, String> tabela;
+    private final Map<String, String> tabela;
 
     public TabelaChaveValor() {
         this.tabela = new HashMap<>();

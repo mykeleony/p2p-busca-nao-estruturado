@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f01db8c2-3f1b-48e5-932c-4dca11b38ff2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p2p-busca-nao-estruturado.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/message/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/Mensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/NodePeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/NodePeer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +22,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mykeleony"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mykeleony/p2p-busca-nao-estruturado.git",
+    "accountId": "5c401b8a-8f4b-45c0-9862-541495a9bc2b"
+  }
 }]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2hTWqGNQgTf0JHg54oJdnfEd5tP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -40,15 +50,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Myke/IdeaProjects/p2p-busca-nao-estruturado",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
   }
@@ -57,6 +70,34 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Myke\IdeaProjects\p2p-busca-nao-estruturado" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="p2p-busca-nao-estruturado" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -67,6 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717618737067</updated>
       <workItem from="1717618738075" duration="2617000" />
+      <workItem from="1717627208821" duration="3095000" />
     </task>
     <servers />
   </component>

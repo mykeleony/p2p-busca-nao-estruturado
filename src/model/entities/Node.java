@@ -1,8 +1,8 @@
 package model.entities;
 
-class Node {
-    private String endereco;
-    private int porta;
+public class Node {
+    private final String endereco;
+    private final int porta;
 
     public Node(String endereco, int porta) {
         this.endereco = endereco;

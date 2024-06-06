@@ -1,11 +1,11 @@
 package message;
 
 public class Mensagem {
-    private String origem;
-    private int seqNo;
-    private int ttl;
-    private String operacao;
-    private String argumentos;
+    private final String origem;
+    private final int seqNo;
+    private final int ttl;
+    private final String operacao;
+    private final String argumentos;
 
     public Mensagem(String origem, int seqNo, int ttl, String operacao, String argumentos) {
         this.origem = origem;

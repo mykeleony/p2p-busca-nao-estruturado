@@ -16,6 +16,8 @@ public class NodePeer {
     private final Random r = new Random();
     private int ttlPadrao = 100;
     private final Map<String, Set<Integer>> mensagensVistas = new ConcurrentHashMap<>();
+    private final Map<String, List<Integer>> saltosPorMetodo = new ConcurrentHashMap<>();
+    private int seqNo = 0;
 
     public NodePeer(String endereco, int porta) {
         this.endereco = endereco;
@@ -78,7 +80,7 @@ public class NodePeer {
 
         int indice = scanner.nextInt();
         Node vizinho = tabelaVizinhos.getVizinhos().get(indice);
-        Mensagem mensagem = new Mensagem(endereco + ":" + porta, 1, 1, "HELLO", "");
+        Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), 1, "HELLO", "");
 
         new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
     }
@@ -114,11 +116,26 @@ public class NodePeer {
     private void realizarBuscaProfundidade(Scanner scanner) {
         System.out.println("Digite a chave a ser buscada:");
         String chave = scanner.nextLine();
-        // Implementar lógica de busca em profundidade aqui
+
+        if (tabelaChaveValor.contemChave(chave)) {
+            System.out.println("Valor na tabela local!");
+            System.out.println("chave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
+        } else {
+            Node vizinho = tabelaVizinhos.getVizinhos().get(r.nextInt(tabelaVizinhos.getVizinhos().size()));
+
+            Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), ttlPadrao, "SEARCH BP " + porta + " " + chave + " 1", "");
+            new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
+        }
     }
 
     private void exibirEstatisticas() {
-        // Implementar lógica para exibir estatísticas aqui
+        System.out.println("Estatísticas");
+        System.out.println("Total de mensagens de flooding vistas: " + contarMensagensPorTipo("FL"));
+        System.out.println("Total de mensagens de random walk vistas: " + contarMensagensPorTipo("RW"));
+        System.out.println("Total de mensagens de busca em profundidade vistas: " + contarMensagensPorTipo("BP"));
+        System.out.println("Média de saltos até encontrar destino por flooding: " + calcularMediaSaltos("FL"));
+        System.out.println("Média de saltos até encontrar destino por random walk: " + calcularMediaSaltos("RW"));
+        System.out.println("Média de saltos até encontrar destino por busca em profundidade: " + calcularMediaSaltos("BP"));
     }
 
     private void alterarTTLPadrao(Scanner scanner) {
@@ -139,8 +156,8 @@ public class NodePeer {
         System.exit(0);
     }
 
-    private int getNovaSeqNo() {
-        return r.nextInt(10000);
+    public int getNovaSeqNo() {
+        return seqNo++;
     }
 
     public void adicionarVizinho(String endereco, int porta) {
@@ -159,6 +176,22 @@ public class NodePeer {
         mensagensVistas.computeIfAbsent(origem, k -> new HashSet<>()).add(seqNo);
     }
 
+    public void adicionarSaltos(String metodo, int saltos) {
+        saltosPorMetodo.computeIfAbsent(metodo, k -> new ArrayList<>()).add(saltos);
+    }
+
+    private int contarMensagensPorTipo(String tipo) {
+        return (int) mensagensVistas.values().stream()
+                .flatMap(Set::stream)
+                .filter(seqNo -> mensagensVistas.containsKey(tipo + " " + seqNo))
+                .count();
+    }
+
+    private double calcularMediaSaltos(String metodo) {
+        List<Integer> saltos = saltosPorMetodo.getOrDefault(metodo, Collections.emptyList());
+        return saltos.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+    }
+
     public int getPorta() {
         return porta;
     }
@@ -166,5 +199,40 @@ public class NodePeer {
     public String getEndereco() {
         return endereco;
     }
-}
 
+    public TabelaVizinhos getTabelaVizinhos() {
+        return tabelaVizinhos;
+    }
+
+    public TabelaChaveValor getTabelaChaveValor() {
+        return tabelaChaveValor;
+    }
+
+    public Random getR() {
+        return r;
+    }
+
+    public int getTtlPadrao() {
+        return ttlPadrao;
+    }
+
+    public void setTtlPadrao(int ttlPadrao) {
+        this.ttlPadrao = ttlPadrao;
+    }
+
+    public Map<String, Set<Integer>> getMensagensVistas() {
+        return mensagensVistas;
+    }
+
+    public Map<String, List<Integer>> getSaltosPorMetodo() {
+        return saltosPorMetodo;
+    }
+
+    public int getSeqNo() {
+        return seqNo;
+    }
+
+    public void setSeqNo(int seqNo) {
+        this.seqNo = seqNo;
+    }
+}
