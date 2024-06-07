@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f01db8c2-3f1b-48e5-932c-4dca11b38ff2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/Mensagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entities/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entities/NodePeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/NodePeer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" afterDir="false" />
-    </list>
+    <list default="true" id="f01db8c2-3f1b-48e5-932c-4dca11b38ff2" name="Changes" comment="feat(busca):  implementação de métodos de busca" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,21 +13,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "mykeleony"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mykeleony&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/mykeleony/p2p-busca-nao-estruturado.git",
-    "accountId": "5c401b8a-8f4b-45c0-9862-541495a9bc2b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mykeleony/p2p-busca-nao-estruturado.git&quot;,
+    &quot;accountId&quot;: &quot;5c401b8a-8f4b-45c0-9862-541495a9bc2b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -48,24 +39,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Myke/IdeaProjects/p2p-busca-nao-estruturado",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Myke/IdeaProjects/p2p-busca-nao-estruturado&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Myke\IdeaProjects\p2p-busca-nao-estruturado" />
@@ -109,11 +100,25 @@
       <updated>1717618737067</updated>
       <workItem from="1717618738075" duration="2617000" />
       <workItem from="1717627208821" duration="3095000" />
+      <workItem from="1717699180016" duration="836000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(busca):  implementação de métodos de busca">
+      <option name="closed" value="true" />
+      <created>1717699249175</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717699249175</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(busca):  implementação de métodos de busca" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(busca):  implementação de métodos de busca" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

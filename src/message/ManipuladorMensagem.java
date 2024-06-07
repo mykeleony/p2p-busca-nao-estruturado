@@ -1,8 +1,8 @@
 package message;
 
 import infra.ClienteTCP;
-import model.entities.NodePeer;
 import model.entities.Node;
+import model.entities.NodePeer;
 
 import java.net.*;
 import java.io.*;
@@ -40,11 +40,11 @@ public class ManipuladorMensagem implements Runnable {
                         case "SEARCH" -> processarMensagemBusca(mensagem);
 
                         case "VAL" -> {
-                            System.out.println("Valor encontrado! Chave: " + mensagem.getArgumentos().split(" ")[2]
-                                    + " valor: " + mensagem.getArgumentos().split(" ")[3]);
-                            nodePeer.adicionarSaltos(mensagem.getArgumentos().split(" ")[0], Integer.parseInt(mensagem.getArgumentos().split(" ")[4]));
+                            System.out.println("Valor encontrado! Chave: " + mensagem.getArgumentos().split(" ")[1]
+                                    + " valor: " + mensagem.getArgumentos().split(" ")[2]);
+                            nodePeer.adicionarSaltos(mensagem.getArgumentos().split(" ")[0], Integer.parseInt(mensagem.getArgumentos().split(" ")[3]));
                         }
-                        // Adicionar casos para outras operações conforme necessário
+
                         default -> System.out.println("Operação desconhecida: \"" + operacao + "\"");
                     }
                 } else {

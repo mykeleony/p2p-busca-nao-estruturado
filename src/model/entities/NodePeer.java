@@ -200,39 +200,11 @@ public class NodePeer {
         return endereco;
     }
 
-    public TabelaVizinhos getTabelaVizinhos() {
-        return tabelaVizinhos;
-    }
-
     public TabelaChaveValor getTabelaChaveValor() {
         return tabelaChaveValor;
     }
 
-    public Random getR() {
-        return r;
-    }
-
-    public int getTtlPadrao() {
-        return ttlPadrao;
-    }
-
-    public void setTtlPadrao(int ttlPadrao) {
-        this.ttlPadrao = ttlPadrao;
-    }
-
-    public Map<String, Set<Integer>> getMensagensVistas() {
-        return mensagensVistas;
-    }
-
-    public Map<String, List<Integer>> getSaltosPorMetodo() {
-        return saltosPorMetodo;
-    }
-
-    public int getSeqNo() {
-        return seqNo;
-    }
-
-    public void setSeqNo(int seqNo) {
-        this.seqNo = seqNo;
+    public TabelaVizinhos getTabelaVizinhos() {
+        return tabelaVizinhos;
     }
 }
