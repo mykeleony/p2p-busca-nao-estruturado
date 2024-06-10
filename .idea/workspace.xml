@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f01db8c2-3f1b-48e5-932c-4dca11b38ff2" name="Changes" comment="feat(busca):  implementação de métodos de busca" />
+    <list default="true" id="f01db8c2-3f1b-48e5-932c-4dca11b38ff2" name="Changes" comment="feat(busca):  implementação de métodos de busca">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/28bf91001d8ef78ac70a938e38e9ab00818c5cba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/28cce89a65b6484e90da5440c0ddd0d6aca218d6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/28cce89a65b6484e90da5440c0ddd0d6aca218d6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab60872f365ff6fee76b90596b6f298e0190389" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fba9b9464d4202daa62615d76a930956e11413b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fba9b9464d4202daa62615d76a930956e11413b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/6518223013414a96cf00216454ddfe6ec41afaf9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/685188c338fb9d37e8cadc078a0d097f0a3c9352" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/685188c338fb9d37e8cadc078a0d097f0a3c9352" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/79d0a517ca40cf97f89e9d5fb676b98ca07fc2b4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/79d0a517ca40cf97f89e9d5fb676b98ca07fc2b4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7f496576cc282030769dd2482670b75ea9f5968e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/974cdf1094252fdbaa97036d11348e9a1ba1051b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/974cdf1094252fdbaa97036d11348e9a1ba1051b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9311d77170610ea13e4e797fa1c9aed21bc528e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9311d77170610ea13e4e797fa1c9aed21bc528e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f7aabe7d42aa4921d562ba152967e29006d17ffa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/8/28bf91001d8ef78ac70a938e38e9ab00818c5cba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3ab60872f365ff6fee76b90596b6f298e0190389" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/5/6518223013414a96cf00216454ddfe6ec41afaf9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/f/7f496576cc282030769dd2482670b75ea9f5968e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/7/f7aabe7d42aa4921d562ba152967e29006d17ffa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infra/ClienteTCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/infra/ClienteTCP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infra/ServidorTCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/infra/ServidorTCP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/ManipuladorMensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/message/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/message/Mensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/NodePeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/NodePeer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/TabelaChaveValor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entities/TabelaVizinhos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entities/TabelaVizinhos.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +132,9 @@
       <workItem from="1717618738075" duration="2617000" />
       <workItem from="1717627208821" duration="3095000" />
       <workItem from="1717699180016" duration="836000" />
+      <workItem from="1717954623807" duration="5976000" />
+      <workItem from="1717985726516" duration="4318000" />
+      <workItem from="1718054843751" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="feat(busca):  implementação de métodos de busca">
       <option name="closed" value="true" />

@@ -33,16 +33,30 @@ public class ManipuladorMensagem implements Runnable {
                     switch (operacao) {
                         case "HELLO" -> {
                             System.out.println("Mensagem recebida: \"" + mensagem + "\"");
-                            nodePeer.adicionarVizinho(mensagem.getOrigem().split(":")[0], Integer.parseInt(mensagem.getOrigem().split(":")[1]));
+                            if (nodePeer.getTabelaVizinhos().contemVizinho(mensagem.getOrigem())) {
+                                System.out.println("\tVizinho já está na tabela: " + mensagem.getOrigem());
+                            } else {
+                                nodePeer.adicionarVizinho(mensagem.getOrigem().split(":")[0], Integer.parseInt(mensagem.getOrigem().split(":")[1]));
+                                System.out.println("\tAdicionando vizinho na tabela: " + mensagem.getOrigem());
+                            }
                             out.println("HELLO_OK");
                         }
 
                         case "SEARCH" -> processarMensagemBusca(mensagem);
 
                         case "VAL" -> {
+                            System.out.println("Mensagem recebida: \"" + mensagem + "\"");
                             System.out.println("Valor encontrado! Chave: " + mensagem.getArgumentos().split(" ")[1]
                                     + " valor: " + mensagem.getArgumentos().split(" ")[2]);
                             nodePeer.adicionarSaltos(mensagem.getArgumentos().split(" ")[0], Integer.parseInt(mensagem.getArgumentos().split(" ")[3]));
+                            out.println("VAL_OK");
+                        }
+
+                        case "BYE" -> {
+                            System.out.println("Mensagem recebida: \"" + mensagem + "\"");
+                            nodePeer.removerVizinho(mensagem.getOrigem().split(":")[0], Integer.parseInt(mensagem.getOrigem().split(":")[1]));
+                            System.out.println("\tRemovendo vizinho da tabela " + mensagem.getOrigem());
+                            out.println("BYE_OK");
                         }
 
                         default -> System.out.println("Operação desconhecida: \"" + operacao + "\"");
@@ -58,13 +72,18 @@ public class ManipuladorMensagem implements Runnable {
 
     private void processarMensagemBusca(Mensagem mensagem) {
         String[] args = mensagem.getArgumentos().split(" ");
+        if (args.length < 4) {
+            System.out.println("Argumentos insuficientes para processar a mensagem de busca: " + mensagem);
+            return;
+        }
+
         String modo = args[0];
         int portaAnterior = Integer.parseInt(args[1]);
         String chave = args[2];
         int hopCount = Integer.parseInt(args[3]);
 
         if (nodePeer.getTabelaChaveValor().contemChave(chave)) {
-            System.out.println("Chave encontrada!");
+            System.out.println("\tChave encontrada!");
             String valor = nodePeer.getTabelaChaveValor().getValor(chave);
             Mensagem resposta = new Mensagem(nodePeer.getEndereco() + ":" + nodePeer.getPorta(), getNovaSeqNo(), 1, "VAL", modo + " " + chave + " " + valor + " " + hopCount);
             new Thread(new ClienteTCP(mensagem.getOrigem().split(":")[0], Integer.parseInt(mensagem.getOrigem().split(":")[1]), resposta)).start();
@@ -76,13 +95,13 @@ public class ManipuladorMensagem implements Runnable {
                 case "FL" -> {
                     Mensagem finalNovaMensagem = novaMensagem;
                     nodePeer.getTabelaVizinhos().getVizinhos().stream()
-                            .filter(vizinho -> vizinho.getPorta() != portaAnterior)
-                            .forEach(vizinho -> new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), finalNovaMensagem)).start());
+                            .filter(vizinho -> vizinho.porta() != portaAnterior)
+                            .forEach(vizinho -> new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), finalNovaMensagem)).start());
                 }
 
                 case "RW" -> {
                     Node vizinho = nodePeer.getTabelaVizinhos().getVizinhos().get(new Random().nextInt(nodePeer.getTabelaVizinhos().getVizinhos().size()));
-                    new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), novaMensagem)).start();
+                    new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), novaMensagem)).start();
                 }
 
                 case "BP" -> {
@@ -91,9 +110,11 @@ public class ManipuladorMensagem implements Runnable {
                     }
 
                     Node vizinho = nodePeer.getTabelaVizinhos().getVizinhos().get(new Random().nextInt(nodePeer.getTabelaVizinhos().getVizinhos().size()));
-                    new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), novaMensagem)).start();
+                    new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), novaMensagem)).start();
                 }
             }
+        } else {
+            System.out.println("\tTTL igual a zero, descartando mensagem");
         }
     }
 

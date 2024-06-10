@@ -22,18 +22,18 @@ public class ClienteTCP implements Runnable {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+            System.out.println("\tEncaminhando mensagem \"" + mensagem + "\" para " + endereco + ":" + porta);
             out.println(mensagem.toString());
-            System.out.println("Encaminhando mensagem \"" + mensagem + "\" para " + endereco + ":" + porta);
 
             String resposta = in.readLine();
 
-            if (resposta.equals(mensagem.getOperacao() + "_OK")) {
-                System.out.println("Envio feito com sucesso: \"" + mensagem + "\"");
+            if (resposta != null && resposta.equals(mensagem.getOperacao() + "_OK")) {
+                System.out.println("\tEnvio feito com sucesso: \"" + mensagem + "\"");
             } else {
-                System.out.println("Erro ao enviar mensagem: \"" + mensagem + "\"");
+                System.out.println("\tErro ao enviar mensagem: \"" + mensagem + "\"");
             }
         } catch (IOException e) {
-            System.out.println("Erro ao conectar com " + endereco + ":" + porta);
+            System.out.println("\tErro ao conectar!");
             e.printStackTrace();
         }
     }

@@ -13,10 +13,19 @@ public class TabelaVizinhos {
         vizinhos.add(new Node(endereco, porta));
     }
 
+    public void removerVizinho(String endereco, int porta) {
+        vizinhos.removeIf(vizinho -> vizinho.endereco().equals(endereco) && vizinho.porta() == porta);
+    }
+
     public List<Node> getVizinhos() {
         return vizinhos;
     }
 
+    public boolean contemVizinho(String origem) {
+        return vizinhos.stream().anyMatch(v -> (v.endereco() + ":" + v.porta()).equals(origem));
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Há ").append(vizinhos.size()).append(" vizinhos na tabela:\n");
@@ -28,4 +37,3 @@ public class TabelaVizinhos {
         return sb.toString();
     }
 }
-

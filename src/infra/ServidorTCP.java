@@ -7,7 +7,7 @@ import java.net.*;
 import java.io.*;
 
 public class ServidorTCP implements Runnable {
-    private NodePeer nodePeer;
+    private final NodePeer nodePeer;
 
     public ServidorTCP(NodePeer nodePeer) {
         this.nodePeer = nodePeer;

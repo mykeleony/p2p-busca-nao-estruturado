@@ -16,24 +16,24 @@ public class Mensagem {
     }
 
     public Mensagem(String mensagem) {
-        String[] partes = mensagem.split(" ", 4);
+        String[] partes = mensagem.trim().split(" ", 5); // Alterado para 5 partes
 
         this.origem = partes[0];
         this.seqNo = Integer.parseInt(partes[1]);
         this.ttl = Integer.parseInt(partes[2]);
-        this.operacao = partes[3].split(" ")[0];
-        this.argumentos = partes[3].substring(this.operacao.length()).trim();
+        this.operacao = partes[3];
+        this.argumentos = partes.length > 4 ? partes[4] : ""; // Garantir que argumentos existam
     }
 
+    @Override
     public String toString() {
         return origem + " " + seqNo + " " + ttl + " " + operacao + " " + argumentos + "\n";
     }
 
-    // Getters e Setters
+    // Getters
     public String getOrigem() { return origem; }
     public int getSeqNo() { return seqNo; }
     public int getTtl() { return ttl; }
     public String getOperacao() { return operacao; }
     public String getArgumentos() { return argumentos; }
 }
-

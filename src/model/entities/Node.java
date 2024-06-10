@@ -1,18 +1,19 @@
 package model.entities;
 
-public class Node {
-    private final String endereco;
-    private final int porta;
+public record Node(String endereco, int porta) {
 
-    public Node(String endereco, int porta) {
-        this.endereco = endereco;
-        this.porta = porta;
-    }
-
-    public String getEndereco() { return endereco; }
-    public int getPorta() { return porta; }
-
+    @Override
     public String toString() {
         return endereco + " " + porta;
+    }
+
+    @Override
+    public String endereco() {
+        return endereco;
+    }
+
+    @Override
+    public int porta() {
+        return porta;
     }
 }

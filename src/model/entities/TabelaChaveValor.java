@@ -21,6 +21,7 @@ public class TabelaChaveValor {
         return tabela.get(chave);
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         tabela.forEach((chave, valor) -> sb.append("chave: ").append(chave).append(" valor: ").append(valor).append("\n"));

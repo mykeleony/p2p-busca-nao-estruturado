@@ -57,15 +57,17 @@ public class NodePeer {
     }
 
     private void exibirMenu() {
-        System.out.println("Escolha o comando:");
-        System.out.println("[0] Listar vizinhos");
-        System.out.println("[1] HELLO");
-        System.out.println("[2] SEARCH (flooding)");
-        System.out.println("[3] SEARCH (random walk)");
-        System.out.println("[4] SEARCH (busca em profundidade)");
-        System.out.println("[5] Estatísticas");
-        System.out.println("[6] Alterar valor padrão de TTL");
-        System.out.println("[9] Sair");
+        System.out.println("""
+                Escolha o comando
+                    [0] Listar vizinhos
+                    [1] HELLO
+                    [2] SEARCH (flooding)
+                    [3] SEARCH (random walk)
+                    [4] SEARCH (busca em profundidade)
+                    [5] Estatísticas
+                    [6] Alterar valor padrão de TTL
+                    [9] Sair
+                """);
     }
 
     private void listarVizinhos() {
@@ -82,7 +84,7 @@ public class NodePeer {
         Node vizinho = tabelaVizinhos.getVizinhos().get(indice);
         Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), 1, "HELLO", "");
 
-        new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
+        new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), mensagem)).start();
     }
 
     private void realizarBuscaFlooding(Scanner scanner) {
@@ -90,11 +92,11 @@ public class NodePeer {
         String chave = scanner.nextLine();
 
         if (tabelaChaveValor.contemChave(chave)) {
-            System.out.println("Valor na tabela local!");
-            System.out.println("chave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
+            System.out.println("\tChave encontrada na tabela local!");
+            System.out.println("\tchave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
         } else {
             Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), ttlPadrao, "SEARCH FL " + porta + " " + chave + " 1", "");
-            tabelaVizinhos.getVizinhos().forEach(vizinho -> new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start());
+            tabelaVizinhos.getVizinhos().forEach(vizinho -> new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), mensagem)).start());
         }
     }
 
@@ -103,13 +105,13 @@ public class NodePeer {
         String chave = scanner.nextLine();
 
         if (tabelaChaveValor.contemChave(chave)) {
-            System.out.println("Valor na tabela local!");
-            System.out.println("chave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
+            System.out.println("\tChave encontrada na tabela local!");
+            System.out.println("\tchave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
         } else {
             Node vizinho = tabelaVizinhos.getVizinhos().get(r.nextInt(tabelaVizinhos.getVizinhos().size()));
 
             Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), ttlPadrao, "SEARCH RW " + porta + " " + chave + " 1", "");
-            new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
+            new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), mensagem)).start();
         }
     }
 
@@ -118,24 +120,33 @@ public class NodePeer {
         String chave = scanner.nextLine();
 
         if (tabelaChaveValor.contemChave(chave)) {
-            System.out.println("Valor na tabela local!");
-            System.out.println("chave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
+            System.out.println("\tChave encontrada na tabela local!");
+            System.out.println("\tchave: " + chave + " valor: " + tabelaChaveValor.getValor(chave));
         } else {
             Node vizinho = tabelaVizinhos.getVizinhos().get(r.nextInt(tabelaVizinhos.getVizinhos().size()));
 
             Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), ttlPadrao, "SEARCH BP " + porta + " " + chave + " 1", "");
-            new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
+            new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), mensagem)).start();
         }
     }
 
     private void exibirEstatisticas() {
-        System.out.println("Estatísticas");
-        System.out.println("Total de mensagens de flooding vistas: " + contarMensagensPorTipo("FL"));
-        System.out.println("Total de mensagens de random walk vistas: " + contarMensagensPorTipo("RW"));
-        System.out.println("Total de mensagens de busca em profundidade vistas: " + contarMensagensPorTipo("BP"));
-        System.out.println("Média de saltos até encontrar destino por flooding: " + calcularMediaSaltos("FL"));
-        System.out.println("Média de saltos até encontrar destino por random walk: " + calcularMediaSaltos("RW"));
-        System.out.println("Média de saltos até encontrar destino por busca em profundidade: " + calcularMediaSaltos("BP"));
+        System.out.println(String.format("""
+                Estatísticas
+                    Total de mensagens de flooding vistas: %d
+                    Total de mensagens de random walk vistas: %d
+                    Total de mensagens de busca em profundidade vistas: %d
+                    Média de saltos até encontrar destino por flooding: %.2f
+                    Média de saltos até encontrar destino por random walk: %.2f
+                    Média de saltos até encontrar destino por busca em profundidade: %.2f
+                """,
+                contarMensagensPorTipo("FL"),
+                contarMensagensPorTipo("RW"),
+                contarMensagensPorTipo("BP"),
+                calcularMediaSaltos("FL"),
+                calcularMediaSaltos("RW"),
+                calcularMediaSaltos("BP")
+        ));
     }
 
     private void alterarTTLPadrao(Scanner scanner) {
@@ -149,7 +160,7 @@ public class NodePeer {
     private void sair() {
         tabelaVizinhos.getVizinhos().forEach(vizinho -> {
             Mensagem mensagem = new Mensagem(endereco + ":" + porta, getNovaSeqNo(), 1, "BYE", "");
-            new Thread(new ClienteTCP(vizinho.getEndereco(), vizinho.getPorta(), mensagem)).start();
+            new Thread(new ClienteTCP(vizinho.endereco(), vizinho.porta(), mensagem)).start();
         });
 
         System.out.println("Saindo...");
@@ -162,6 +173,10 @@ public class NodePeer {
 
     public void adicionarVizinho(String endereco, int porta) {
         tabelaVizinhos.adicionarVizinho(endereco, porta);
+    }
+
+    public void removerVizinho(String endereco, int porta) {
+        tabelaVizinhos.removerVizinho(endereco, porta);
     }
 
     public void adicionarParChaveValor(String chave, String valor) {
@@ -181,10 +196,7 @@ public class NodePeer {
     }
 
     private int contarMensagensPorTipo(String tipo) {
-        return (int) mensagensVistas.values().stream()
-                .flatMap(Set::stream)
-                .filter(seqNo -> mensagensVistas.containsKey(tipo + " " + seqNo))
-                .count();
+        return saltosPorMetodo.getOrDefault(tipo, Collections.emptyList()).size();
     }
 
     private double calcularMediaSaltos(String metodo) {
